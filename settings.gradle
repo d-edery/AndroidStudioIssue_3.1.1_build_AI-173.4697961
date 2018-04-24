@@ -1,0 +1,13 @@
+void includeIfExists(String artifactId) {
+    println("path: " + new File(".").getAbsolutePath())
+    if (new File("${artifactId}", "build.gradle").exists()) {
+        println("${artifactId} exists")
+        include ":${artifactId}"
+    }
+    else {
+        println("${artifactId} does not exists")
+    }
+}
+
+include ':app'
+includeIfExists 'module_a'
